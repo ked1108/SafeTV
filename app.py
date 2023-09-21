@@ -3,6 +3,7 @@ import cv2
 
 app = Flask(__name__, static_url_path="/static")
 camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture('rtsp://<ip>:<port>/')
 
 def gen_frames():  # generate frame by frame from camera
     while True:
