@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Response
 import cv2
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 camera = cv2.VideoCapture(0)
 
 def gen_frames():  # generate frame by frame from camera
