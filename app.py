@@ -3,17 +3,13 @@ from Pretrained_ml_model import ProcessedOP
 import cv2
 
 app = Flask(__name__)
-camera = cv2.VideoCapture(0)
 # camera = cv2.VideoCapture('rtsp://<ip>:<port>/')
 
 def gen_frames(camera):  # generate frame by frame from camera
     while True:
         # Capture frame-by-frame
-        success, frame = camera.read()  # read the camera frame
-        if not success:
-            break
-        else:
-            yield (b'--frame\r\n'
+        frame = camera.get_frames()  # read the camera frame
+        yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 
 @app.route('/video_feed')
@@ -26,4 +22,4 @@ def index():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)

@@ -94,51 +94,39 @@ names = {
 class ProcessedOP(object):
     def __init__(self) -> None:
         self.video = cv2.VideoCapture(0)
-        self.video.cap(3,1280)
-        self.video.cap(4,720)
+        self.video.set(3,1280)
+        self.video.set(4,720)
     
     def __del__(self) -> None:
         self.video.release()
 
     def get_frames(self):
-        success, image = self.video.read()
-
         model = YOLO("yolov8n.pt")
+        success , img = self.video.read()
+        results = model(img , stream = True)
+        for r in results :
+            boxes = r.boxes
+            for box in boxes :
+                #bonding box
+                x1, y1 , x2 , y2 = box.xyxy[0]
+                x1 , y1 , x2 , y2 = int(x1) , int(y1) , int(x2) , int(y2)
+                print(x1 , y1 , x2 , y2)
+                cv2.rectangle(img,(x1,y1),(x2,y2),(255 , 0 , 255),1)
+                #w , h = x2 - x1 , y2 - y1 
+                #cvzone.cornerRect(img(x1 , y1 , w , h))
 
-#mask = cv2.imread("/home/parougv/sih_project/Untitled.png")
+                #Confindence
+                conf = (math.ceil(box.conf[0]*100))/100
 
-        while True:
-            success , img = self.video.read()
-            #img_region = cv2.bitwise_and(img , mask)
-            results = model(img , stream = True)
-            for r in results :
-                boxes = r.boxes
-                for box in boxes :
-                    #bonding box
-                    x1, y1 , x2 , y2 = box.xyxy[0]
-                    x1 , y1 , x2 , y2 = int(x1) , int(y1) , int(x2) , int(y2)
-                    print(x1 , y1 , x2 , y2)
-                    cv2.rectangle(img,(x1,y1),(x2,y2),(255 , 0 , 255),1)
-                    #w , h = x2 - x1 , y2 - y1 
-                    #cvzone.cornerRect(img(x1 , y1 , w , h))
-
-                    #Confindence
-                    conf = (math.ceil(box.conf[0]*100))/100
-
-                    #class Name :-
-                    cls = int(box.cls[0])
-                    checker = names[cls]
-                    cvzone.putTextRect(img,f'{checker} {conf}',(max(0,x1) , max(35,y1)),scale = 0.6 , thickness = 1 , offset = 3)
-                    #if (checker == "person" or checker == "thief" or checker == "threat" or checker == "liscence"  or checker == "train") and conf >= 0.3 :
-                        #if checker != "liscence plate" :
-                            #cvzone.putTextRect(img , f'{checker} {conf}',(max(0,x1) , max(35 ,y1)),scale = 0.6 ,thickness = 1,offset = 3)
-                        #else:
-                            #read text from the number plate and display it on the box 
-                    #      cvzone.putTextRect(img , f'{checker} {conf}',(max(0,x1)  , max(35,y1)),scale=0.6 , thickness = 1,offset = 3)
+                #class Name :-
+                cls = int(box.cls[0])
+                checker = names[cls]
+                cvzone.putTextRect(img,f'{checker} {conf}',(max(0,x1) , max(35,y1)),scale = 0.6 , thickness = 1 , offset = 3)
 
 
-            ret, jpeg = cv2.imencode('.jpg', image)
-            return jpeg.tobytes()
+
+        ret, jpeg = cv2.imencode('.jpg', img)
+        return jpeg.tobytes()
 
 
 
