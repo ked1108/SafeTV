@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section class="container">
+	<div class="columns features">
+	  <div class="column is-4">
+		<div class="card is-shady">
+		  <div class="card-image">
+			<figure class="image is-4by3">
+			  <img src="https://images.unsplash.com/photo-1515555230216-82228b88ea98?auto=format&amp;fit=crop&amp;w=900&amp;q=60" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+			</figure>
+		  </div>
+		  <div class="card-content">
+			<div class="content">
+			  <h4>OBJECT DETECTION</h4>
+			  <p>The model identifies and locates objects within the footage, such as bags or packages, and alerts railway authorities to potential security threats. The model is trained on a vast dataset of real-world scenarios, making it highly accurate and efficient.</p>
+			  <span class="button is-link modal-button" data-target="modal-image2">Image modal</span>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="column is-4">
+		<div class="card is-shady">
+		  <div class="card-image">
+			<figure class="image is-4by3">
+			  <img src="https://res.cloudinary.com/crakerss/image/upload/c_scale,q_auto:eco,w_1440/v1502988509/background_conifer/MS.jpg" alt="Placeholder image">
+			</figure>
+		  </div>
+		  <div class="card-content">
+			<div class="content">
+			  <h4>ANOMALY DETECTION</h4>
+			  <p>
+				The model identify unusual patterns in the footage, such as sudden changes in light movement, that may indicate potential security threats. The model can alert railway authorities to potential security threats, allowing for immediate action.
+			  </p>
+			  <span class="button is-link modal-button" data-target="modal-card">Modal Card</span>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="column is-4 modal-button" data-target="modal-image">
+		<div class="card is-shady">
+		  <div class="card-image">
+			<figure class="image is-4by3">
+			  <img src="https://res.cloudinary.com/ameo/image/upload/v1568711475/pexels-photo-1302883_fjje0f.jpg" alt="Placeholder image">
+			</figure>
+		  </div>
+		  <div class="card-content">
+			<div class="content">
+			  <h4>CROWD MANAGEMENT</h4>
+			  <p>The model can detect when there is a significant crowd accumulation in one area and alert railway authorities to take action. The AI model is trained on a vast dataset of real-world scenarios, making it highly accurate and efficient.</p>
+			  <span class="button is-link modal-button" data-target="modal-image">Image modal</span>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	  
+	</div>
+  </section>
+{% endblock %}
