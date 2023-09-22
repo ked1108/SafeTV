@@ -21,27 +21,29 @@
                     </div>
                 </div>
                 <div class="column is-one-third has-text-left">
-                    <div class="field">
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <input class="input is-medium" type="text">
+                    <form action="/contact" method="post">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="name" placeholder="Name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control">
-                            <input class="input is-medium" type="text">
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="email" placeholder="E-Mail">
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Message</label>
-                        <div class="control">
-                            <textarea class="textarea is-medium"></textarea>
+                        <div class="field">
+                            <label class="label">Message</label>
+                            <div class="control">
+                                <textarea class="textarea is-medium" name="message"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control">
-                        <button type="submit" class="button is-black  is-fullwidth has-text-weight-medium is-medium">Send Message</button>
-                    </div>
+                        <div class="control">
+                            <button type="submit" class="button is-black  is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

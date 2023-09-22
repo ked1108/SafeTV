@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request, redirect
 import cv2
 
 app = Flask(__name__, static_url_path="/static")
@@ -26,9 +26,16 @@ def video_feed():
 def index():
     return render_template("index.html")
 
-@app.route('/contact')
+@app.route('/contact', methods=["POST", "GET"])
 def contact():
-    return render_template("contacts.html")
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        print(name, email, message)
+        return redirect('/')
+    else:
+        return render_template("contacts.html")
 
 @app.route('/about')
 def about():
