@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='css/bulma.css')}}">
+    <style>
+      .navbar.has-shadow {
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.2);
+          background-color: black; /* Set the navbar background color to black */
+          border-width: 30px; /* Increase the border width */ 
+          border-color: rgb(0, 128, 255); /* Set the border color to muted blue */
+      }
+      .logo-container {
+          display: flex;
+          align-items: center;
+      }
+      .logo {
+          max-height: 70px;
+      }
+      .title-container {
+          display: flex;
+          flex-direction: column;
+          margin-left: 20px; /* Increase the margin for more distance */
+      }
+      .team-name {
+          font-weight: bold;
+          font-size: 20px; /* Adjust the font size as needed */
+          color: white; /* Set text color to white */
+      }
+      .project-title {
+          font-style: italic;
+          font-weight: normal; /* You can adjust the font weight for the project title */
+          font-size: 16px; /* Adjust the font size as needed */
+          color: white; /* Set text color to white */
+      }
+      .is-white {
+          color: white !important; /* Set text color of navbar items to white */
+      }
+      .is-white:hover {
+          background-color: rgb(0, 128, 255); /* Set background color to muted blue on hover */
+          color: white !important; /* Set text color to white on hover */
+      }
+  </style>
     {% block head %}{% endblock %}
 </head>
 <body>
+  <nav class="navbar has-shadow">
+    <div class="navbar-brand is-white">
+        <a class="navbar-item">
+            <div class="logo-container">
+                <img src="" alt="site logo" class="logo">
+                <div class="title-container">
+                    <span class="team-name">Team Name</span>
+                    <span class="project-title">Project Title</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end">
+            <div class="is-white navbar-item">
+                <a class="is-white has-text-weight-bold">Contact us</a>
+            </div>
+            <div class="is-white navbar-item">
+                <a class="is-white has-text-weight-bold">About</a>
+            </div>
+        </div>
+    </div>
+</nav>
     <section class="hero is-black is-small">
         <div class="hero-body">
           <div class="container has-text-centered">
