@@ -51,17 +51,18 @@
         <a class="navbar-item">
             <div class="logo-container">
                 <img src="{{url_for('static', filename='Icon.svg')}}" alt="site logo" class="logo">
-                <div class="title-container">
+                <!-- <div class="title-container">
                     <span class="team-name">Team Name</span>
                     <span class="project-title">Project Title</span>
-                </div>
+                </div> -->
             </div>
         </a>
     </div>
-    <div class="navbar-menu" id="nav-links">
+    
+    <div class=" navbar-right navbar-menu" id="nav-links">
         <div class="navbar-end">
             <div class="is-white navbar-item">
-                <a class="is-white has-text-weight-bold">Contact us</a>
+                <a href="/contact" class="is-white has-text-weight-bold">Contact us</a>
             </div>
             <div class="is-white navbar-item">
                 <a class="is-white has-text-weight-bold">About</a>
@@ -80,7 +81,7 @@
             </p>
           </div>
         </div>
-      </section>
+      </section> 
     {% block body %}
     {% endblock %}
     <!-- footer -->
