@@ -104,7 +104,7 @@ class ProcessedOP(object):
         self.video.set(3, 1280)
         self.video.set(4, 720)
 
-    def gen_frames(self):
+    def get_frames(self):
         tracker = Sort(max_age=20 , min_hits=3 , iou_threshold=0.3)
         success , img = self.video.read()
         #img_region = cv2.bitwise_and(img , mask)
@@ -148,7 +148,7 @@ class ProcessedOP(object):
                 w , h = x2 - x1 , y2 - y1
                 cv2.rectangle(img , (x1 , y1) , (x2 , y2) , (255 , 0 , 255))
                 #cvzone.cornerRect(img , (x1 , y1 , w , h) , l = 9 , rt = 2 , colorR = (255,0,0))
-                cvzone.putTextRect(img,f'{id} {checker} {conf}',(max(0,x1) , max(35,y1)),scale = 0.6 , thickness = 1 , offset =3)
+                cvzone.putTextRect(img,f'{id} {checker} {conf}',(max(0,x1) , max(35,y1)),scale = 0.8 , thickness = 1 , offset =3)
             else:
                 x1 , y1 , x2 , y2 , id = result
                 x1 , y1 , x2 , y2 = int(x1) , int(y1) , int(x2) , int(y2)
@@ -156,10 +156,10 @@ class ProcessedOP(object):
                 w , h = x2 - x1 , y2 - y1
                 cv2.rectangle(img , (x1 , y1) , (x2 , y2) , (255 , 0 , 255))
                 #cvzone.cornerRect(img , (x1 , y1 , w , h) , l = 9 , rt = 2 , colorR = (255,0,0))
-                cvzone.putTextRect(img,f'{checker} {conf}',(max(0,x1) , max(35,y1)),scale = 0.6 , thickness = 1 , offset =3)            
+                cvzone.putTextRect(img,f'{checker} {conf}',(max(0,x1) , max(35,y1)),scale = 0.8 , thickness = 1 , offset =3)            
 
         # ret, jpeg = cv2.imencode('.jpg', img)
-        return img
+        return cv2.imencode('.jpg', img)[1].tobytes()
 
 
 
