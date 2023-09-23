@@ -1,7 +1,5 @@
 #To run this model , you need ultralytics along with OPENCV and CVZONE , NUMPY
-
-
-
+from turbojpeg import TurboJPEG
 from ultralytics import YOLO
 import cv2
 import cvzone
@@ -90,11 +88,12 @@ names = {
     78: "hair drier",
     79: "toothbrush"
 }
-
+# jpeg = TurboJPEG('/usr/lib64/libturbojpeg.so')
+jpeg = TurboJPEG()
 class ProcessedOP(object):
     def __init__(self) -> None:
         self.video = cv2.VideoCapture(0)
-        self.video.set(3,1280)
+        self.video.set(3,1080)
         self.video.set(4,720)
     
     def __del__(self) -> None:
@@ -125,8 +124,7 @@ class ProcessedOP(object):
 
 
 
-        ret, jpeg = cv2.imencode('.jpg', img)
-        return jpeg.tobytes()
+        return jpeg.encode(img)
 
 
 
