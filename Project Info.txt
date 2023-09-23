@@ -1,0 +1,2 @@
+Safe TV is a Realtime detection for threats to common people . These Threats can be a gunman attack or something like that 
+The deep learning algorithm used for this YOLO v8 also You Only Look Once version 8
