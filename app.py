@@ -1,8 +1,8 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request, redirect
 from Pretrained_ml_model import ProcessedOP
 import cv2
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 # camera = cv2.VideoCapture('rtsp://<ip>:<port>/')
 
 def gen_frames(camera):  # generate frame by frame from camera
@@ -20,6 +20,22 @@ def video_feed():
 @app.route('/')
 def index():
     return render_template("index.html")
+
+@app.route('/contact', methods=["POST", "GET"])
+def contact():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        print(name, email, message)
+        return redirect('/')
+    else:
+        return render_template("contacts.html")
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)

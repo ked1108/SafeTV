@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Contact Us</title>
+{% endblock %}
+{% block body %}
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="columns is-20 is-variable ">
+                <div class="column is-two-thirds has-text-left">
+                    <h1 class="title is-2">Contact Us</h1>
+                    <p>We're Here to Help</p>
+                    <br>
+    
+                    <div class="social-media">
+                        <a href="https://github.com" target="_blank" class="button is-black is-large"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="button is-black is-large"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="button is-black is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="button is-black is-large"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        
+                    </div>
+                </div>
+                <div class="column is-one-third has-text-left">
+                    <form action="/contact" method="post">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="email" placeholder="E-Mail">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Message</label>
+                            <div class="control">
+                                <textarea class="textarea is-medium" name="message"></textarea>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button is-black  is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

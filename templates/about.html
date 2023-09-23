@@ -1,21 +1,7 @@
 {% extends 'base.html' %}
-{% block head %}
-<title>Home</title>
-{% endblock %}
 
 {% block body %}
-<section class="p-5">
-    <div class="columns is-desktop">
-       <div class="column is-left has-text-left pb-5">
-          <figure class="image is-text-centered is-16x9 is-3by1 mb-5">
-             
-             <img style="width:60%; height: 100%;margin-left: auto;
-             margin-right: auto;"  src="/video_feed">
-          </figure>
-       </div>
-       </div>
-</section>
-<section class="container" style="padding: 22pt; margin-bottom: 100px;">
+<section class="container" style="padding: 22pt;">
 	<div class="columns features">
 	  <div class="column is-4">
 		<div class="card is-shady">
@@ -28,7 +14,7 @@
 			<div class="content">
 			  <h4>OBJECT DETECTION</h4>
 			  <p>The model identifies and locates objects within the footage, such as bags or packages, and alerts railway authorities to potential security threats. The model is trained on a vast dataset of real-world scenarios, making it highly accurate and efficient.</p>
-			  
+			  <span class="button is-link modal-button" data-target="modal-image2">Image modal</span>
 			</div>
 		  </div>
 		</div>
@@ -46,7 +32,7 @@
 			  <p>
 				The model identify unusual patterns in the footage, such as sudden changes in light movement, that may indicate potential security threats. The model can alert railway authorities to potential security threats, allowing for immediate action.
 			  </p>
-			  
+			  <span class="button is-link modal-button" data-target="modal-card">Modal Card</span>
 			</div>
 		  </div>
 		</div>
@@ -57,11 +43,12 @@
 			<figure class="image is-4by3">
 			  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqLUqmEfG-dhZvtZ-g57rUagquVZK8Ga3tvw&usqp=CAU" alt="Placeholder image">
 			</figure>
-		</div>
-		<div class="card-content">
+		  </div>
+		  <div class="card-content">
 			<div class="content">
-			    <h4>CROWD MANAGEMENT</h4>
-			    <p>The model can detect when there is a significant crowd accumulation in one area and alert railway authorities to take action. The AI model is trained on a vast dataset of real-world scenarios, making it highly accurate and efficient.</p>
+			  <h4>CROWD MANAGEMENT</h4>
+			  <p>The model can detect when there is a significant crowd accumulation in one area and alert railway authorities to take action. The AI model is trained on a vast dataset of real-world scenarios, making it highly accurate and efficient.</p>
+			  <span class="button is-link modal-button" data-target="modal-image">Image modal</span>
 			</div>
 		  </div>
 		</div>
